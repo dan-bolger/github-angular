@@ -15,7 +15,7 @@ describe('when searching for a user', function() {
 
     var items = [
             {
-                "login": "tansaku",
+            "login": "tansaku",
             "avatar_url": "https://avatars.githubusercontent.com/u/30216?v=3",
             "html_url": "https://github.com/tansaku"
             },
