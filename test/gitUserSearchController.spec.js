@@ -6,7 +6,7 @@ describe('GitUserSearchController', function() {
     beforeEach(inject(function($controller) {
       ctrl = $controller('GitUserSearchController');
     }));
-    
+
       it('initialises with an empty seach result and term', function() {
       expect(ctrl.searchResult).toBeUndefined();
       expect(ctrl.searchTerm).toBeUndefined();
@@ -18,11 +18,16 @@ describe('when searching for a user', function() {
     beforeEach(inject(function($httpBackend) {
         httpBackend = $httpBackend
         httpBackend
-            .when("GET", "https://api.github.com/search/users?q=fuckyou")
+            .expectGET("https://api.github.com/search/users?q=fuckyou")
             .respond(
                 { items: items }
                 );
     }));
+
+    afterEach(function() {
+        httpBackend.verifyNoOutstandingExpectation();
+        httpBackend.verifyNoOutstandingRequest();
+    });
 
     var items = [
             {
