@@ -1,1 +1,0 @@
-describe('Github Profile finder', function)
